@@ -1,7 +1,8 @@
 {
   "presets": [
     ["@babel/preset-env", { "targets": { "node": "current" } }],
-    ["react-app", { "useESModules": false }]
+    ["react-app", { "useESModules": false }],
+    ["@babel/preset-react", { "runtime": "automatic" }]
   ],
   "plugins": [
     ["@babel/plugin-proposal-private-methods", { "loose": false }],
