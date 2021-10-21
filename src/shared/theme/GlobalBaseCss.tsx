@@ -33,4 +33,8 @@ export const GlobalBaseCss = css`
 
     padding: 0;
   }
+
+  h1 {
+    font-size: 4rem;
+  }
 `;
