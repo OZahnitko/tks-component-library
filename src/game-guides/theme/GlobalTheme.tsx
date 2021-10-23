@@ -7,8 +7,6 @@ export const GlobalStyle = createGlobalStyle`
   ${sharedTheme.GlobalBaseCss};
 
   body {
-    background-color: ${mineShaft};
-
     font-family: "Roboto Mono", monospace;
   }
 `;
