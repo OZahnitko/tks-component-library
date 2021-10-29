@@ -37,7 +37,7 @@ const LoadingSquare = () => {
   }, [animationCycle]);
 
   return (
-    <Wrapper gapValue={5}>
+    <Wrapper>
       {Array.from({ length: 9 })
         .map((_, index) => index)
         .map((index) => (
@@ -60,5 +60,23 @@ export const AnimatedChild = ({
   activeElements: number[];
   index: number;
 }) => {
-  return <ChildContainer isActive={activeElements.includes(index)} />;
+  const [size, setSize] = useState<number>(100);
+
+  useEffect(() => {
+    const sizeInterval = window.setInterval(() => {
+      setSize((size) => (size === 100 ? 50 : 100));
+    }, 2000);
+    return () => {
+      window.clearInterval(sizeInterval);
+    };
+  }, []);
+
+  return (
+    <ChildContainer.Wrapper>
+      <ChildContainer.Child
+        childSize={size}
+        isActive={activeElements.includes(index)}
+      />
+    </ChildContainer.Wrapper>
+  );
 };

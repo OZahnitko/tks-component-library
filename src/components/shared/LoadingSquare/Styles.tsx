@@ -1,21 +1,33 @@
 import styled from "styled-components";
 
-interface ChildContainerProps {
+interface ChildContainerWrapperProps {
+  childSize: number;
   isActive: boolean;
 }
 
-export const ChildContainer = styled.div<ChildContainerProps>`
-  background: ${(props) => (props.isActive ? "black" : "white")};
+export const ChildContainer = {
+  Child: styled.div<ChildContainerWrapperProps>`
+    background: ${(props) => (props.isActive ? "black" : "white")};
 
-  color: white;
+    height: ${(props) => props.childSize}%;
 
-  transition: height 0.25s ease-in-out;
-`;
+    transition: height 0.25s ease, width 0.25s ease;
 
-export const Wrapper = styled.div<{ gapValue: number }>`
+    width: ${(props) => props.childSize}%;
+  `,
+  Wrapper: styled.div`
+    align-items: center;
+
+    display: flex;
+
+    justify-content: center;
+  `,
+};
+
+export const Wrapper = styled.div`
   display: grid;
 
-  gap: ${(props) => props.gapValue}px;
+  gap: 5px;
   grid-template-columns: repeat(3, auto);
   grid-template-rows: repeat(3, auto);
 
