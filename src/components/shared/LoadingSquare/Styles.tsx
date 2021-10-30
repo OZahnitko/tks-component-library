@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 interface ChildContainerWrapperProps {
-  childSize: number;
   isActive: boolean;
 }
 
@@ -9,11 +8,11 @@ export const ChildContainer = {
   Child: styled.div<ChildContainerWrapperProps>`
     background: ${(props) => (props.isActive ? "black" : "white")};
 
-    height: ${(props) => props.childSize}%;
+    height: ${(props) => (props.isActive ? 100 : 25)}%;
 
-    transition: height 0.25s ease, width 0.25s ease;
+    transition: height 0.5s ease, width 0.5s ease;
 
-    width: ${(props) => props.childSize}%;
+    width: ${(props) => (props.isActive ? 100 : 25)}%;
   `,
   Wrapper: styled.div`
     align-items: center;

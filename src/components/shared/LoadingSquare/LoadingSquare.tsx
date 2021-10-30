@@ -60,23 +60,9 @@ export const AnimatedChild = ({
   activeElements: number[];
   index: number;
 }) => {
-  const [size, setSize] = useState<number>(100);
-
-  useEffect(() => {
-    const sizeInterval = window.setInterval(() => {
-      setSize((size) => (size === 100 ? 50 : 100));
-    }, 2000);
-    return () => {
-      window.clearInterval(sizeInterval);
-    };
-  }, []);
-
   return (
     <ChildContainer.Wrapper>
-      <ChildContainer.Child
-        childSize={size}
-        isActive={activeElements.includes(index)}
-      />
+      <ChildContainer.Child isActive={activeElements.includes(index)} />
     </ChildContainer.Wrapper>
   );
 };
